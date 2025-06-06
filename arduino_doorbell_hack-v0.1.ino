@@ -8,7 +8,7 @@
 #include <pcmRF.h>
 
 TMRpcm player;
-int button = 4;
+int button = 2;
 int volume = 5; //set the volume outside the code
 
 void setup() {
