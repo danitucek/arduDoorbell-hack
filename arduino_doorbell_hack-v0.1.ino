@@ -24,6 +24,8 @@ void setup() {
 }
 void loop() {
   buttonState = digitalRead(button);
+  Serial.print("Button status: ");
+  Serial.println(buttonState);
   if (buttonState == 0) {
     player.play("dingdong.wav");
     player.isPlaying();
