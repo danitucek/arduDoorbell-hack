@@ -10,6 +10,7 @@
 TMRpcm player;
 int button = 2;
 int volume = 5; //set the volume outside the code
+int buttonState;
 
 void setup() {
   player.speakerPin = 9;
@@ -22,7 +23,9 @@ void setup() {
   player.setVolume(volume);
 }
 void loop() {
-  if (digitalRead(button) == 0) {
+  buttonState = digitalRead(button);
+  if (buttonState == 0) {
     player.play("dingdong.wav");
+    player.isPlaying();
   }
 }
