@@ -13,6 +13,7 @@ int volume = 5; //set the volume outside the code
 int buttonState;
 
 void setup() {
+  pinMode(button, INPUT_PULLUP);
   player.speakerPin = 9;
   Serial.begin(9600);
   if (!SD.begin(SD_ChipSelectPin)) {
