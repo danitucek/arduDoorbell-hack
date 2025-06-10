@@ -38,6 +38,10 @@ void loop() {
   updateLed();
   buttonState = digitalRead(button);
   if (buttonState == 0) {
+    player.setVolume(volume);
     player.play("dingdong.wav");
+  }
+  if (!player.isPlaying()) {
+    player.setVolume(0);
   }
 }
