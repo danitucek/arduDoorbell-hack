@@ -1,3 +1,6 @@
+#include <Bounce2.h>
+Bounce2::Button button = Bounce2::Button();
+
 #include <SD.h>
 #define SD_ChipSelectPin 4
 
@@ -8,7 +11,7 @@
 #include <pcmRF.h>
 
 TMRpcm player;
-int button = 2;
+int ringButton = 2;
 int volume = 5; //set the volume outside the code
 int buttonState;
 int led = 5;
@@ -23,7 +26,9 @@ void updateLed() {
 }
 
 void setup() {
-  pinMode(button, INPUT_PULLUP);
+  button.attach(ringButton,INPUT_PULLUP);
+  button.interval(5);
+  button.setPressedState(LOW);
   pinMode(led, OUTPUT);
   player.speakerPin = 9;
   Serial.begin(9600);
@@ -35,9 +40,9 @@ void setup() {
 }
 
 void loop() {
+  button.update();
   updateLed();
-  buttonState = digitalRead(button);
-  if (buttonState == 0) {
+  if (button.pressed()) {
     player.setVolume(volume);
     player.play("dingdong.wav");
   }
