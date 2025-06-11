@@ -20,6 +20,15 @@ void updateLed() {
   }
 }
 
+void sdAlert() {
+  for (int i;i<3;i++) {
+    digitalWrite(LED_BUILTIN,HIGH);
+    delay(100);
+    digitalWrite(LED_BUILTIN,LOW);
+    delay(100);
+  }
+}
+
 void setup() {
   button.attach(ringButton,INPUT_PULLUP);
   button.interval(5);
@@ -27,9 +36,9 @@ void setup() {
   pinMode(led, OUTPUT);
   player.speakerPin = 9;
   Serial.begin(9600);
-  if (!SD.begin(SD_ChipSelectPin)) {
+  while (!SD.begin(SD_ChipSelectPin)) {
     Serial.println("SD fail");
-    return;
+    sdAlert();
   }
   player.setVolume(volume);
 }
