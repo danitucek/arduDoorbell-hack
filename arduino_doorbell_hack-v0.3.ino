@@ -22,10 +22,10 @@ void updateLed() {
 
 void sdAlert() {
   for (int i;i<3;i++) {
-    digitalWrite(LED_BUILTIN,HIGH);
-    delay(100);
-    digitalWrite(LED_BUILTIN,LOW);
-    delay(100);
+    digitalWrite(led,HIGH);
+    delay(500);
+    digitalWrite(led,LOW);
+    delay(500);
   }
 }
 
