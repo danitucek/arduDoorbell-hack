@@ -1,14 +1,9 @@
 #include <Bounce2.h>
 Bounce2::Button button = Bounce2::Button();
 
-#include <SD.h>
 #define SD_ChipSelectPin 4
 
-#include <SPI.h>
-
 #include <TMRpcm.h>
-#include <pcmConfig.h>
-#include <pcmRF.h>
 
 TMRpcm player;
 int ringButton = 2;
